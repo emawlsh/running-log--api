@@ -16,16 +16,20 @@ document.addEventListener("DOMContentLoaded", () => {
                      });
 
                     var dates = [];
-                    var distance = [];
+                    var distances = [];
                     var durations = [];
                     var avgSpeeds = [];
 
                      runs.forEach( run => {
                         dates.push(run.runDate);
-                        distance.push(run.distance);
+                        distances.push(run.distance);
                         durations.push(run.time);
                         avgSpeeds.push(run.avgSpeed);
                      });
+
+                    if(dates.length == 0 && distances.length == 0 && durations.length == 0 && avgSpeeds.length == 0){
+                     document.getElementById("chartSubtitle").innerHTML = "<p> Visit your <a href='http://localhost:8080/users-profile.html' target='_self'>running log</a> to start tracking your trends </p>"
+                    }
 
                     new Chart(document.querySelector('#distanceChart'), {
                     type: 'line',
@@ -33,7 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
                       labels: dates,
                       datasets: [{
                         label: 'Distance',
-                        data: distance,
+                        data: distances,
                         fill: false,
                         borderColor: 'rgb(75, 192, 192)',
                         tension: 0.1
@@ -93,7 +97,6 @@ document.addEventListener("DOMContentLoaded", () => {
                   }
 
 });
-
 
 function getWeatherInfo(){
 
