@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
                      });
 
                     if(dates.length == 0 && distances.length == 0 && durations.length == 0 && avgSpeeds.length == 0){
-                     document.getElementById("chartSubtitle").innerHTML = "<p> Visit your <a href='http://localhost:8080/users-profile.html' target='_self'>running log</a> to start tracking your trends </p>"
+                     document.getElementById("chartSubtitle").innerHTML = "<p> Visit your <a href='http://localhost:8080/pages-runs.html' target='_self'>running log</a> to start tracking your trends </p>"
                     }
 
                     new Chart(document.querySelector('#distanceChart'), {
@@ -122,8 +122,7 @@ function getWeather(province, city){
      var url = "http://localhost:8080/getWeather?city=" + city + "&province=" + province
 
     if(city == null || city == "" || province == null || province == ""){
-    document.getElementById("forcastTitle").innerHTML = "<p> Enter your <a href='http://localhost:8080/users-profile.html' target='_self'>location details</a> to view your weekly weather forecast</p>"
-    document.getElementById("forecastLoad").innerHTML = null
+    document.getElementById("forecastLoad").innerHTML = "<p> Enter your <a href='http://localhost:8080/users-profile.html' target='_self'>location details</a> to view your weekly weather forecast</p>"
     return
     }
 
