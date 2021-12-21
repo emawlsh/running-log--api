@@ -92,12 +92,11 @@
         <h1>Running-Log Home</h1>
     </div><!-- End Page Title -->
 
-    <div class="pagetitle">
-        <h2>Weekly Weather Forecast</h2>
+    <div class="pagetitle" id="forcastTitle">
     </div>
 
     <section class="section">
-        <body onload="getWather()">
+        <body onload="getWeatherInfo()">
         <div class="weather-list" id="forecastLoad">
             <div class='icon'>
             <div class="spinner-border text-primary" role="status">
@@ -141,9 +140,8 @@
         <h2>Trends</h2>
     </div>
 
-    <p> Visit your <a href="http://localhost:8080/pages-runs.html" target="_self">running log</a> to track your runs!</p>
 
-
+    <div id = "runTrends">
         <div class="row">
             <div class="col-lg-6">
                 <div class="card">
@@ -170,6 +168,7 @@
                 </div>
             </div>
         </div>
+    </div>
     </section>
 
 

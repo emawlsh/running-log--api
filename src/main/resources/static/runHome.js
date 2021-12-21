@@ -1,7 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-                   getWeather();
-
                 var url = "http://localhost:8080/getRunner?username=" + localStorage.getItem('username')
                    let ajax = new XMLHttpRequest();
 
@@ -97,13 +95,34 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
-function getWeather(){
+function getWeatherInfo(){
 
-    var province = localStorage.getItem('province')
-    var city = localStorage.getItem('city')
+   var url = "http://localhost:8080/getRunner?username=" + localStorage.getItem('username')
+   let ajax = new XMLHttpRequest();
+
+   ajax.open("GET", url, true);
+
+   ajax.send();
+
+   ajax.onload = () => {
+   var runner = JSON.parse(ajax.response)
+   var province = runner.province;
+   var city = runner.city;
+
+   getWeather(province, city)
+
+   }
+}
+
+function getWeather(province, city){
 
      var url = "http://localhost:8080/getWeather?city=" + city + "&province=" + province
 
+    if(city == null || city == "" || province == null || province == ""){
+    document.getElementById("forcastTitle").innerHTML = "<p> Enter your <a href='http://localhost:8080/users-profile.html' target='_self'>location details</a> to view your weekly weather forecast</p>"
+    document.getElementById("forecastLoad").innerHTML = null
+    return
+    }
 
      let ajax = new XMLHttpRequest();
 
@@ -159,7 +178,7 @@ function getWeather(){
        + "<div class='label'> wind speed max: " + windMax + "</div>"
        + "<div class='label'>" + date + "</div></div>"
      }
-
+     document.getElementById("forcastTitle").innerHTML = "<h2>Weekly Weather Forecast</h2>"
      document.getElementById("forecastLoad").innerHTML = tForecast;
 
      }

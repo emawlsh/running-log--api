@@ -70,9 +70,6 @@ function getProfileInfo(){
    document.getElementById("province").innerHTML = province;
    document.getElementById("city").innerHTML = city;
 
-   localStorage.setItem('province', province)
-   localStorage.setItem('city', city)
-
    getEditProfileInfo(firstName, lastName, email, province, city);
 
    }
