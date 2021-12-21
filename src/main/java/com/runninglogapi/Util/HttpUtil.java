@@ -47,8 +47,14 @@ private JSONObject getCoordinates(String province, String city) throws IOExcepti
 
 public JSONArray getWeather(String province, String city) throws IOException {
     JSONObject obj = getCoordinates(province, city);
+    System.out.println(province + " " + city);
+    if(province == null){
+        JSONArray nullArray = new JSONArray();
+        return nullArray;
+    }
     String latt = Double.toString(obj.getDouble("latitude"));
     String longt = Double.toString(obj.getDouble("longitude"));
+    System.out.println(latt + " " + longt);
     URL url  = new URL("http://www.7timer.info/bin/api.pl?lon=" + longt + "&lat=" + latt + "&product=civillight&output=json");
     String responseBody = makeHttpRequest(url);
     JSONObject obj2 = new JSONObject(responseBody);
