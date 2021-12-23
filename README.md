@@ -22,7 +22,7 @@ To use this application, you must simply visit [the login page][1].
 From there, you can choose to either sign into a previously created account, or create a new one.
 Once you are logged into your account, you can try logging a run. 
 
-To read more about the running-log API, visit the [running-log wiki][2]
+To read more about this application, visit the [running-log wiki][2]
 
 [0]:http://localhost:8080/swagger-ui.html
 [1]:http://localhost:8080/
